@@ -6,9 +6,9 @@ from lib.mesh_sampling import laplacian
 
 def load_graph_mtx(project_dir, load_for_demo=False):
     print('loading pre-saved transform matrices...')
-    A_ds2 = list(np.load(os.path.join(project_dir, 'data', 'transform_matrices/ds2/A.npy'), encoding='latin1'))
-    D_ds2 = list(np.load(os.path.join(project_dir, 'data', 'transform_matrices/ds2/D.npy'), encoding='latin1'))
-    U_ds2 = list(np.load(os.path.join(project_dir, 'data', 'transform_matrices/ds2/U.npy'), encoding='latin1'))
+    A_ds2 = list(np.load(os.path.join(project_dir, 'data', 'transform_matrices/ds2/A.npy'),allow_pickle=True, encoding='latin1'))
+    D_ds2 = list(np.load(os.path.join(project_dir, 'data', 'transform_matrices/ds2/D.npy'),allow_pickle=True, encoding='latin1'))
+    U_ds2 = list(np.load(os.path.join(project_dir, 'data', 'transform_matrices/ds2/U.npy'),allow_pickle=True, encoding='latin1'))
 
     A_ds2 = list(map(lambda x: x.astype('float32'), A_ds2))
     D_ds2 = list(map(lambda x: x.astype('float32'), D_ds2))
@@ -19,9 +19,9 @@ def load_graph_mtx(project_dir, load_for_demo=False):
     if not load_for_demo:
         return L_ds2, D_ds2, U_ds2
     else:
-        A = list(np.load(os.path.join(project_dir, 'data', 'transform_matrices/for_demo/A.npy'), encoding='latin1'))
-        D = list(np.load(os.path.join(project_dir, 'data', 'transform_matrices/for_demo/D.npy'), encoding='latin1'))
-        U = list(np.load(os.path.join(project_dir, 'data', 'transform_matrices/for_demo/U.npy'), encoding='latin1'))
+        A = list(np.load(os.path.join(project_dir, 'data', 'transform_matrices/for_demo/A.npy'),allow_pickle=True, encoding='latin1'))
+        D = list(np.load(os.path.join(project_dir, 'data', 'transform_matrices/for_demo/D.npy'), allow_pickle=True,encoding='latin1'))
+        U = list(np.load(os.path.join(project_dir, 'data', 'transform_matrices/for_demo/U.npy'), allow_pickle=True,encoding='latin1'))
 
         p = list(map(lambda x: x.shape[0], A))
         A = list(map(lambda x: x.astype('float32'), A))
